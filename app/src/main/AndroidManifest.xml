@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="fat.cc.study">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".activity.login.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.menu.StuInfoActivity" />
+        <activity android:name=".activity.course.CourseActivity" />
+        <activity android:name=".activity.coursefile.CourseFilesActivity" />
+        <activity android:name=".activity.achievement.AchievementActivity" />
+        <activity android:name=".activity.notice.NoticeActivity" />
+        <activity android:name=".activity.notice.NoticeContentActivity" />
+        <activity android:name=".activity.suggestion.SuggestionActivity" />
+        <activity android:name=".activity.fee.FeeActivity" />
+        <activity android:name=".activity.video.VideoActivity"></activity>
+    </application>
+
+</manifest>

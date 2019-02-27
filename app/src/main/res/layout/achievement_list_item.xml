@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/a_courseName"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="课程名"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="0dp"
+
+
+
+        app:layout_constraintHorizontal_weight="9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/achievement"
+        app:layout_constraintTop_toBottomOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/achievement"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="费用"
+
+        android:gravity="center"
+
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="5dp"
+
+
+        app:layout_constraintHorizontal_weight="2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/a_courseName"
+
+        />
+
+
+
+
+</android.support.constraint.ConstraintLayout>
