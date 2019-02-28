@@ -3,7 +3,6 @@ package fat.cc.study.activity.fee;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -11,6 +10,7 @@ import com.alibaba.fastjson.JSON;
 import java.io.IOException;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.common.URL;
 import okhttp3.Call;
@@ -19,7 +19,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class FeeActivity extends AppCompatActivity {
+public class FeeActivity extends BaseActivity {
 
     private TextView feeContentTV;
 
@@ -32,6 +32,7 @@ public class FeeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fee);
+        setActionBarTitle("学费查询");
 
         feeContentTV = findViewById(R.id.fee_content);
         handler = new RequestDataHandler();

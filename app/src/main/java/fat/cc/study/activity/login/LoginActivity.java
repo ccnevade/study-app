@@ -1,7 +1,6 @@
 package fat.cc.study.activity.login;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -15,10 +14,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.activity.menu.StuInfoActivity;
 import fat.cc.study.bean.ApiReview;
-import fat.cc.study.common.URL;
 import fat.cc.study.bean.LoginUser;
+import fat.cc.study.common.URL;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -27,7 +27,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends BaseActivity {
 
     private BootstrapEditText usernameEditText;
 
@@ -41,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        setActionBarTitle("学生登录");
         this.init();
 
         /**

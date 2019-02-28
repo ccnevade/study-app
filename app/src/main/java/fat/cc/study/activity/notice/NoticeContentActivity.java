@@ -1,7 +1,6 @@
 package fat.cc.study.activity.notice;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
@@ -9,9 +8,10 @@ import com.alibaba.fastjson.JSON;
 import java.text.SimpleDateFormat;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.bean.Notice;
 
-public class NoticeContentActivity extends AppCompatActivity {
+public class NoticeContentActivity extends BaseActivity {
 
     private TextView titleTV;
 
@@ -25,6 +25,7 @@ public class NoticeContentActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice_content);
+        setActionBarTitle("公告详情");
 
         this.init();
         String noticeStr = getIntent().getStringExtra("notice");

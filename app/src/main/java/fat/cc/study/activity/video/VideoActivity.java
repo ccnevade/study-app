@@ -1,13 +1,13 @@
 package fat.cc.study.activity.video;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.MediaController;
 import android.widget.VideoView;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends BaseActivity {
 
     private VideoView videoView;
 
@@ -15,6 +15,8 @@ public class VideoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+
+        setActionBarTitle("视频");
 
         videoView = findViewById(R.id.videoView);
 

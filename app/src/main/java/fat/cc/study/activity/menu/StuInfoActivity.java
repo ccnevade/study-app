@@ -2,7 +2,6 @@ package fat.cc.study.activity.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
@@ -15,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.activity.achievement.AchievementActivity;
 import fat.cc.study.activity.course.CourseActivity;
 import fat.cc.study.activity.fee.FeeActivity;
@@ -23,7 +23,7 @@ import fat.cc.study.activity.suggestion.SuggestionActivity;
 import fat.cc.study.bean.LoginUser;
 import fat.cc.study.bean.MenuBean;
 
-public class StuInfoActivity extends AppCompatActivity {
+public class StuInfoActivity extends BaseActivity {
 
     private TextView usernameTV;
 
@@ -45,6 +45,7 @@ public class StuInfoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_student_info);
+        setActionBarTitle("学生信息");
 
         this.initFields();
 

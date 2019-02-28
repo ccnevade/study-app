@@ -18,6 +18,8 @@ public class CourseFiles implements Serializable {
     //文件的uri
     private String fileUri;
 
+    private String fileType;
+
     private Course course;
 
 
@@ -67,5 +69,13 @@ public class CourseFiles implements Serializable {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
     }
 }

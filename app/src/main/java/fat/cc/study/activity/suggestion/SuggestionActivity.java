@@ -3,7 +3,6 @@ package fat.cc.study.activity.suggestion;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -16,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.IOException;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.common.URL;
 import okhttp3.Call;
@@ -26,7 +26,7 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
-public class SuggestionActivity extends AppCompatActivity {
+public class SuggestionActivity extends BaseActivity {
 
     private EditText suggestionTitleET;
 
@@ -40,6 +40,8 @@ public class SuggestionActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_suggestion);
+        setActionBarTitle("意见建议");
+
 
         this.init();
 

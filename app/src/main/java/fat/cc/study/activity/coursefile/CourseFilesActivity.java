@@ -5,11 +5,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.alibaba.fastjson.JSON;
 
@@ -18,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.activity.video.VideoActivity;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.bean.CourseFiles;
@@ -29,7 +28,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class CourseFilesActivity extends AppCompatActivity {
+public class CourseFilesActivity extends BaseActivity {
 
     private ListView listView;
     private CourseFileListAdapter adapter;
@@ -45,6 +44,7 @@ public class CourseFilesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_files);
+        setActionBarTitle("课程资源");
 
         //初始化
         listView = findViewById(R.id.file_lv);
@@ -67,8 +67,80 @@ public class CourseFilesActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), VideoActivity.class);
                 intent.putExtra("filePath", item.getFileUri());
                 startActivity(intent);
-                Toast.makeText(getApplicationContext(),item.getFileName(),Toast.LENGTH_SHORT).show();
 
+//                Intent intent = null;
+//                List<String> typsList = Arrays.asList("text/html", "image/*", "application/pdf", "text/plain", "audio/*", "video/*", "application/x-chm", "application/msword",
+//                        "application/vnd.ms-excel", "application/vnd.ms-powerpoint", "application/vnd.android.package-archive");
+
+//                if (typsList.contains(item.getFileType())) {
+//
+//                    if (FileType.html.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getHtmlFileIntent(item.getFileType());
+//                    } else if (FileType.image.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getImageFileIntent(item.getFileType());
+//                    } else if (FileType.pdf.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getImageFileIntent(item.getFileType());
+//                    } else if (FileType.plain.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getTextFileIntent(item.getFileType());
+//                    } else if (FileType.audio.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getAudioFileIntent(item.getFileType());
+//                    } else if (FileType.video.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getVideoFileIntent(item.getFileType());
+//                    } else if (FileType.chm.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getChmFileIntent(item.getFileType());
+//                    } else if (FileType.msword.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getWordFileIntent(item.getFileType());
+//                    } else if (FileType.msexcel.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getExcelFileIntent(item.getFileType());
+//                    } else if (FileType.msppt.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getPPTFileIntent(item.getFileType());
+//                    } else if (FileType.apk.getFileType().contains(item.getFileType())) {
+//                        intent = FilesUtils.getApkFileIntent(item.getFileType());
+//                    }
+
+//                    switch (item.getFileType()) {
+//                        case "text/html":
+//                            intent = FilesUtils.getHtmlFileIntent(item.getFileType());
+//                            break;
+//                        case "image/*":
+//                            intent = FilesUtils.getImageFileIntent(item.getFileType());
+//                            break;
+//                        case "application/pdf":
+//                            intent = FilesUtils.getPdfFileIntent(item.getFileType());
+//                            break;
+//                        case "text/plain":
+//                            intent = FilesUtils.getTextFileIntent(item.getFileType());
+//                            break;
+//                        case "audio/*":
+//                            intent = FilesUtils.getAudioFileIntent(item.getFileType());
+//                            break;
+//                        case "video/*":
+//                            intent = FilesUtils.getVideoFileIntent(item.getFileType());
+//                            break;
+//                        case "application/x-chm":
+//                            intent = FilesUtils.getChmFileIntent(item.getFileType());
+//                            break;
+//                        case "application/msword":
+//                            intent = FilesUtils.getWordFileIntent(item.getFileType());
+//                            break;
+//                        case "application/vnd.ms-excel":
+//                            intent = FilesUtils.getExcelFileIntent(item.getFileType());
+//                            break;
+//                        case "application/vnd.ms-powerpoint":
+//                            intent = FilesUtils.getPPTFileIntent(item.getFileType());
+//                            break;
+//                        case "application/vnd.android.package-archive":
+//                            intent = FilesUtils.getApkFileIntent(item.getFileType());
+//                            break;
+//                        default:
+//                            intent = FilesUtils.getTextFileIntent(item.getFileType());
+//                            break;
+//
+//                    }
+//                    startActivity(intent);
+//                }
+//
+//                Toast.makeText(CourseFilesActivity.this,"不支持此文件格式！",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -104,7 +176,7 @@ public class CourseFilesActivity extends AppCompatActivity {
                     if (null != apiReview && apiReview.getCode().equals(200000)) {
                         List<CourseFiles> requestList = JSON.parseArray(JSON.toJSONString(apiReview.getData()), CourseFiles.class);
                         for (CourseFiles obj : requestList) {
-                            list.add(new CourseFilesListItem(obj.getFileName(),obj.getFileUri()));
+                            list.add(new CourseFilesListItem(obj.getFileName(),obj.getFileUri(),obj.getFileType()));
                         }
                         //发送一个handler事件，再handler中更新主线程ui
                         handler.sendMessage(new Message());

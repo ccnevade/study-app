@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.bean.AchievementListItem;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.bean.StudentCourse;
@@ -26,7 +26,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class AchievementActivity extends AppCompatActivity {
+public class AchievementActivity extends BaseActivity {
 
     private ListView listView;
     private AchievementListAdapter adapter;
@@ -42,6 +42,7 @@ public class AchievementActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_achievement);
+        setActionBarTitle("成绩查询");
         //初始化
         listView = findViewById(R.id.achievement_lv);
         handler = new RequestDataHandler();

@@ -1,6 +1,5 @@
 package fat.cc.study.activity.course;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.activity.coursefile.CourseFilesActivity;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.bean.CourseListItem;
@@ -28,7 +28,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class CourseActivity extends Activity {
+public class CourseActivity extends BaseActivity {
 
     private ListView listView;
     private CourseListAdapter adapter;
@@ -44,6 +44,7 @@ public class CourseActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course);
+        setActionBarTitle("课程信息");
 
         //初始化
         listView = findViewById(R.id.course_lv);

@@ -6,12 +6,15 @@ public class CourseFilesListItem {
 
     private String fileUri;
 
+    private String fileType;
+
     public CourseFilesListItem() {
     }
 
-    public CourseFilesListItem(String fileName, String fileUri) {
+    public CourseFilesListItem(String fileName, String fileUri,String fileType) {
         this.fileName = fileName;
         this.fileUri = fileUri;
+        this.fileType = fileType;
     }
 
     public String getFileName() {
@@ -30,5 +33,11 @@ public class CourseFilesListItem {
         this.fileUri = fileUri;
     }
 
+    public String getFileType() {
+        return fileType;
+    }
 
+    public void setFileType(String fileType) {
+        this.fileType = fileType;
+    }
 }

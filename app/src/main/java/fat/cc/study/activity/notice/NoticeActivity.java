@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -17,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import fat.cc.study.R;
+import fat.cc.study.activity.BaseActivity;
 import fat.cc.study.bean.ApiReview;
 import fat.cc.study.bean.Notice;
 import fat.cc.study.bean.NoticeListItem;
@@ -27,7 +27,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class NoticeActivity extends AppCompatActivity {
+public class NoticeActivity extends BaseActivity {
 
     private ListView listView;
     private NoticeListAdapter adapter;
@@ -42,6 +42,7 @@ public class NoticeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notice);
+        setActionBarTitle("公告列表");
         //初始化
         listView = findViewById(R.id.notice_lv);
         handler = new RequestDataHandler();
