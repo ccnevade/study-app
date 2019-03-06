@@ -37,4 +37,8 @@ dependencies {
     implementation 'org.apache.commons:commons-lang3:3.7'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    //播放器
+//    implementation 'com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5'
+//    implementation 'com.jakewharton:butterknife:8.8.1'
+//    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
 }

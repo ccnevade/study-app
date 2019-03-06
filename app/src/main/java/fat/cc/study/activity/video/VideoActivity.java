@@ -29,9 +29,11 @@ public class VideoActivity extends BaseActivity {
 
         //VideoView与MediaController建立关联
         videoView.setMediaController(mediaController);
+        mediaController.setMediaPlayer(videoView);
 
         //让VideoView获取焦点
         videoView.requestFocus();
+        videoView.start();
     }
 
 }

@@ -27,4 +27,6 @@
         <activity android:name=".activity.video.VideoActivity"></activity>
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+
 </manifest>
